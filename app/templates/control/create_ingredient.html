@@ -1,0 +1,51 @@
+<!-- Route in in control_views.py -->
+
+{% extends "control/templates/control_template.html" %}
+
+{% block title %} Add ingredients! {% endblock %}
+
+{% block main %}
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+<h1>Ingredients</h1>
+<a>Here you will find a list with all ingredients the system knows, are any missing? Just add them below, but don't
+    forget
+    that you have to assign to them a position afterwards!
+</a>
+
+<!-- Input Ingredient Form() -->
+
+<form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.name.label(class="form-label") }}:
+        {{ form.name(class="form-control") }}
+    </div>
+
+    {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+<hr>
+
+<!-- List of all Ingredients  req all_ingredients -->
+
+<ol class="list-group list-group-flush">
+
+    {% for ingredient in all_ingredients %}
+
+    <li class="list-group-item" style="background-color: #f1f1f1">
+        {{ ingredient.name }}
+    </li>
+
+    {% endfor %}
+</ol>
+
+{% endblock main %}

@@ -1,0 +1,51 @@
+<!-- Route in in public_views.py -->
+
+{% extends "public/templates/publictemplate.html" %}
+
+{% block title %} Position manager{% endblock %}
+
+
+{% block main %}
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+<h1>Position manager</h1>
+<p>Here you can set the positions of the ingredients that you want to use. Just leave the positions you don't need
+  blank.</p>
+
+<hr>
+
+<form method="POST">
+
+  <div class="mb-3">
+
+    {{ form.hidden_tag() }}
+
+    <ul class="list-group list-group-flush">
+
+      {% for nested in form.ingredient %}
+
+      <li class="list-group-item" style="background-color: #f1f1f1;">
+
+        <ul class="pagination">
+          <li class="page-item"> Position {{loop.index }}</li>
+          <li class="page-item">{{ nested }}</li>
+        </ul>
+
+      </li>
+
+      {% endfor %}
+
+    </ul>
+
+  </div>
+
+  {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+{% endblock main %}

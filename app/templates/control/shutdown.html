@@ -1,0 +1,17 @@
+<!-- Route in in control_views.py -->
+
+{% extends "control/templates/control_template.html" %}
+
+{% block title %} Shutdown {% endblock %}
+
+{% block main %}
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+<a href="confirm_shutdown">Confirm Shutdown</a>
+
+{% endblock main %}

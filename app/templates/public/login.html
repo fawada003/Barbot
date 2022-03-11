@@ -1,0 +1,41 @@
+<!-- Route in in public_views.py -->
+
+{% extends "public/templates/publictemplate.html" %}
+
+{% block title %}Log in{% endblock %}
+
+
+{% block main %}
+
+<!-- Messages-->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+
+<h1>Log in</h1>
+<p>To add new ingredients or create new drinks, you have to log in with
+    CONTROL status. If you need to delete items, you have to log in with ADMIN status.
+</p>
+
+<hr>
+
+<!-- Input LoginForm() -->
+
+<form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.username.label(class="form-label") }}:
+        {{ form.username(class="form-control") }}
+        {{ form.password.label(class="form-label") }}:
+        {{ form.password(class="form-control") }}
+    </div>
+
+    {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+{% endblock main %}

@@ -1,0 +1,22 @@
+<!-- Route in in public_views.py -->
+
+{% extends "public/templates/publictemplate.html" %}
+
+{% block title %} Home {% endblock %}
+
+<!-- Messages-->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+
+{% block main %}
+<h1>Home</h1>
+<hr>
+<p>Welcome to the Barbot, Darmstadts first automated bartender created by Fabian Wagner. Here you will defenitly find
+  what you are looking for, and if not just,
+  just add it into the system, insert the ingredients and you are ready to go. Altough the Barbot is constantly kept on
+  track, errors might occur, in the case of a pyhsical malfunction, just deactivate
+  the Barbot as fast as possible. </p>
+{% endblock main %}

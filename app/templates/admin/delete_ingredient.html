@@ -1,0 +1,49 @@
+<!-- Route in in admin_views.py -->
+
+{% extends "admin/templates/admintemplate.html" %}
+
+{% block title %} Delete ingredients! {% endblock %}
+
+{% block main %}
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+
+<h1>Delete ingredients</h1>
+<a>Here you find a list with all ingredients the system knows, if there are any ingredients wrongfully added or
+    outdated, just type their name, to delete them!
+    But remember, with greate power comes greate responsibility!
+</a>
+
+<!-- Input IngredientForm() -->
+
+<form method="POST">
+
+    {{ form.hidden_tag() }}
+    
+    <div class="mb-3">
+        {{ form.name(class="form-control") }}
+    </div>
+         {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+<!-- List of all ingredients -->
+
+<ol class="list-group list-group-flush">
+
+    {% for ingredient in all_ingredients %}
+   
+    <li class="list-group-item" style="background-color: #f1f1f1">
+        {{ ingredient.name }}
+    </li>
+
+    {% endfor %}
+</ol>
+
+
+{% endblock main %}

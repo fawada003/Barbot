@@ -1,0 +1,22 @@
+<!-- Route in in admin_views.py -->
+
+{% extends "admin/templates/admintemplate.html" %}
+
+{% block title %} Batcave {% endblock %}
+
+{% block main %}
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+
+
+<h1>Hello Fabian</h1>
+<a> Welcome to the Control Center, from here you have control over the whole Database. Have a nice day!</a>
+<hr>
+
+
+{% endblock main %}

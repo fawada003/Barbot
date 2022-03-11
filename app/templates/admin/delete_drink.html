@@ -1,0 +1,67 @@
+<!-- Route in in admin_views.py -->
+
+{% extends "admin/templates/admintemplate.html" %}
+
+{% block title %} Delete drinks! {% endblock %}
+
+{% block main %}
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+
+<h1>Delete drinks</h1>
+
+<a>Here you find a list with all drinks the system knows, if there are any drinks wrongfully added or outdated, just
+    type their name to delete them!
+    But remember, with greate power comes great responsibility!
+</a>
+
+<!-- Input IngredientForm -->
+
+<form method="POST">
+    
+    {{ form.hidden_tag() }}
+    
+    <div class="mb-3">
+        {{ form.name(class="form-control", placeholder="Drink Name") }}
+    </div>
+
+    {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+<hr>
+
+<!-- List of all drinks req, all_links, all_drinks, all_ingredients -->
+
+{% for drink in all_drinks %}
+
+<div class="list-group">
+    <input class="list-group-item list-group-item-action active" type="submit" name="submit_button"
+        value="{{ drink.name }}">
+
+    {% for ingredient in all_ingredients %}
+
+    {% for link in all_links %}
+    
+    {% if link.drink_id == drink.id and link.ingredient_id == ingredient.id%}
+    
+    <a class="list-group-item list-group-item-action">
+        {{ link.ing_count*2 }}cl
+        {{ ingredient.name }}
+    </a>
+  
+    {% endif %}
+  
+    {% endfor %}
+
+    {% endfor %}
+</div>
+
+{% endfor %}
+
+{% endblock main %}

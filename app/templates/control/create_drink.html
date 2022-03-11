@@ -1,0 +1,87 @@
+<!-- Route in in control_views.py -->
+
+{% extends "control/templates/control_template.html" %}
+
+{% block title %} Create a drink! {% endblock %}
+
+{% block main %}
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+
+
+<h1>Create a drink!</h1>
+<a>
+  Here you find a list with all drinks in our system. Are any missing?
+</a>
+
+<hr>
+
+<!-- Input DrinkForm() -->
+
+<form method="POST">
+
+  <div>
+    {{ form.hidden_tag() }}
+    {{ form.drink_name(placeholder="Drink Name") }}
+  </div>
+  
+  <ul class="list-group list-group-flush">
+    
+    {% for nested in form.ingredients %}
+    <li class="list-group-item" style="background-color: #f1f1f1;">
+      
+      <ul class="pagination">
+        <li class="page-item">{{ nested.ingredient_name(placeholder="Ingredient") }}</li>
+        <li class="page-item">{{ nested.quantity }}</li>
+      </ul>
+
+    </li>
+
+    {% endfor %}
+
+  </ul>
+  
+  <br>
+
+  {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+<br>
+<br>
+<br>
+
+<!--  List of all drinks req all_drink, all_links, all_ingredients-->
+<h2>Here's a list with all drinks in the database:</h2>
+
+{% for drink in all_drinks %}
+
+<div class="list-group">
+  <input class="list-group-item list-group-item-action active" type="submit" name="submit_button"
+    value="{{ drink.name }}">
+
+  {% for ingredient in all_ingredients %}
+
+  {% for link in all_links %}
+
+  {% if link.drink_id == drink.id and link.ingredient_id == ingredient.id%}
+
+  <a class="list-group-item list-group-item-action">
+    {{ link.ing_count*2 }}cl
+    {{ ingredient.name }}
+  </a>
+
+  {% endif %}
+
+  {% endfor %}
+
+  {% endfor %}
+
+  {% endfor %}
+
+  {% endblock main %}

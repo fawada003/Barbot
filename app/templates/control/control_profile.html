@@ -1,0 +1,24 @@
+<!-- Route in in control_views.py -->
+
+{% extends "control/templates/control_template.html" %} 
+
+{% block title %} Control {% endblock %}
+
+{% block main %} 
+
+<!-- Messages -->
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+  <h2 class="alert alert-{{category}}">{{ message }}</h2>
+{% endfor %}
+
+
+<h1>Welcome!</h1>
+<p>Congratulations, you have successfully logged in to the restricted Control area, you can create <a href="create_drink">drinks</a>, 
+    or add <a href="create_ingredient">ingredients</a> from here. 
+</p>
+<h2><a href="shutdown">Shutdown System</a></h2>
+
+
+{% endblock main %}
+

@@ -1,0 +1,4 @@
+sudo crontab -e 
+
+run.sh
+python3 /home/pi/Desktop/barbot/shutdownpi.py

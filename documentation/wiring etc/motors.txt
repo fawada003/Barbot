@@ -1,0 +1,29 @@
+Setup 
+
+raspberry pi, a4988 in extension board (if you dont use extension board you need 100pF capacitor)
+
+
+
+
+Motors:
+Xaxis: https://www.omc-stepperonline.com/nema-17-stepper-motor-datasheet/nema-17-bipolar-45ncm-6374ozin-15a-42x42x39mm-4-wires-w--300mm-pin-connector.html
+1,5A 
+
+Yaxis: Document in folder
+1,7A
+
+
+ 
+
+
+
+
+
+A4988:
+
+-Dont forget to adjust the current when using a4988: https://ardufocus.com/howto/a4988-motor-current-tuning/
+
+-Dont foget that A4988 has an enable pin, set it to LOW to enable the motor, HIGH will disable it 
+
+-using a driver board can be practical because you have an inbuild capacitor, easier wiring, better mounting
+

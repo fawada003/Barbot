@@ -1,0 +1,22 @@
+TAKEN == (2,3,4,17,19,20,21,26,)
+
+MOTOR YAXIS:
+ENABLE == 2
+DIR == 26
+STEP == 19
+MS == (-1,-1,-1)
+
+
+
+MOTOR XAXIS:
+ENABLE == 3
+DIR == 20
+STEP == 21
+MS == (-1,-1,-1)
+
+
+
+BUTTON:
+SYNCX == 4
+SYNCY == 17
+

@@ -1,0 +1,21 @@
+Run flask on ip adress of raspberry pi (ifconfig in bash) to access it from other devices 
+
+Important:
+export FLASK_APP=Run
+
+source /home/pi/Desktop/barbot/venv/bin/activate
+
+flask run -h 192.....
+
+
+Links: 
+
+https://flask.palletsprojects.com/en/2.0.x/quickstart/
+https://wtforms.readthedocs.io/en/2.3.x/fields/
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+
+
+
+
+
+

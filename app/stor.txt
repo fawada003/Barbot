@@ -1,0 +1,21 @@
+Python 3.7.3 (default, Jan 22 2021, 20:04:44) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from run import db
+fro>>> from databases import Positions
+>>> test = User.query.filter_by(id=1).first()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'User' is not defined
+>>> test = Positions.query.filter_by(id=1).first()
+>>> num = "Bacardi"
+>>> db.session.comit()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'scoped_session' object has no attribute 'comit'
+>>> db.session.commit()
+>>> test = Positions.query.get(1)
+>>> test.num = 'Bacarditest'
+>>> db.session.commit()
+>>> exit()
+pi@fabian:~/Desktop/barbot $ 

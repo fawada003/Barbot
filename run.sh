@@ -6,7 +6,7 @@ cd /home/pi/Desktop/barbot
 
 sleep 10s 
 
-flask run -h 192.168.178.52 & #hier muss die ip vom pi stehen, am besten sollte diese statisch sein  
+flask run -h *localip* &  #ip should be static if you host like this
 
 
-#es läuft run.sh --> run.py --> __init__.py
+# run.sh --> run.py --> __init__.py

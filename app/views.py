@@ -235,16 +235,16 @@ def login():
     form = LoginForm()
 
     users = dict(
-        Leonard='passwort',
-        Clara='passwort',
-        Felix='passwort',
-        Bernhard='passwort',
-        Silke='passwort',
-        Test="teset",
+        name='passwort',
+        name2='passwort',
+        name2='passwort',
+        name3='passwort',
+        name4='passwort',
+        name5="teset",
     )
 
     if form.validate_on_submit():
-        if form.username.data == 'Fabian' and form.password.data == 'Secretkey':
+        if form.username.data == 'Name' and form.password.data == 'Secretkey':
             flash("Welcome home!", "primary")
             return redirect(url_for('admin_profile'))
 
